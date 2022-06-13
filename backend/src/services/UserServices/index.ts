@@ -1,6 +1,6 @@
 import { DeleteUserService } from './DeleteUserService';
 import { UpdateUserService } from './UpdateUserService';
-import { userRepository } from '../../repositories'
+import { userRepository } from '../../database/repositories'
 
 import {CreateUserService} from './CreateUserService'
 import { ListAllUserService } from './ListAllUserService'

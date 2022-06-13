@@ -1,4 +1,4 @@
-import { IUserRepository } from '../../repositories/Users/IUserRepository';
+import { IUserRepository } from '../../database/repositories/Users/IUserRepository';
 import { User } from "../../database/entities/user.entity";
 
 export class ListAllUserService{

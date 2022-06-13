@@ -2,7 +2,7 @@ import { DeleteUserService } from './../services/UserServices/DeleteUserService'
 import { ShowOneUserService } from '../services/UserServices/ShowOneUserService';
 import { UpdateUserService } from './../services/UserServices/UpdateUserService';
 import { User } from "../database/entities/user.entity"
-import { UserRepository } from "../repositories/Users/user.repository"
+import { UserRepository } from "../database/repositories/Users/user.repository"
 import { CreateUserService } from "../services/UserServices/CreateUserService"
 import { ListAllUserService } from "../services/UserServices/ListAllUserService"
 import { TestHelper } from "./TestHelper"

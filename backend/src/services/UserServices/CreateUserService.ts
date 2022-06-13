@@ -1,5 +1,5 @@
 import { User } from "../../database/entities/user.entity";
-import { IUserRepository } from '../../repositories/Users/IUserRepository';
+import { IUserRepository } from '../../database/repositories/Users/IUserRepository';
 
 interface IRequest {
     firstName: string, 
