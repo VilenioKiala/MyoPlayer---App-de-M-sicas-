@@ -1,12 +1,9 @@
 import path from 'path'
 import {DataSource} from 'typeorm'
-
-
-const env = process.env.NODE_ENV || "development"
-const config = require(path.join(__dirname,"config","config.json"))[env]
+import { databaseConfig } from '../config/database'
 
 const AppDataSource = new DataSource({
-    ...config,
+    ...databaseConfig,
     entities:[`${__dirname}/entities/*.ts`],
     migrations:[`${__dirname}/migrations/*.ts`],
     cli:{

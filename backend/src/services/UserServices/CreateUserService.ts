@@ -1,5 +1,6 @@
 import { User } from "../../database/entities/user.entity";
 import { IUserRepository } from '../../database/repositories/Users/IUserRepository';
+import {validateOrReject,validate} from 'class-validator'
 
 interface IRequest {
     firstName: string, 
@@ -21,7 +22,15 @@ export class CreateUserService{
             username,
             password,
         })
+
+        await validateOrReject(user)
         
+        const userExist = await this.userRepository.findOneByUsername(user.username)
+        
+        if(userExist){
+            throw new Error("Já existe um usuário com esse nome de usuário!")
+        }
+
         user.encryptPassword()
         
         const userCreated = await this.userRepository.create(user)

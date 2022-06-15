@@ -3,7 +3,8 @@ import { signInService } from "../../../services/AuthServices"
 
 export class SignIn{
     handle(req: Request, res: Response){
-        signInService.execute(req.body)
+        const {username,password} = req.body;
+        signInService.execute({username,password})
         .then(user=>{
             return res.json(user)
         })

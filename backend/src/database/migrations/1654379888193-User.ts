@@ -10,6 +10,7 @@ export class User1654379888193 implements MigrationInterface {
                     name: "id",
                     type: "varchar",
                     isPrimary: true,
+                    isNullable: false,
                 },
                 {
                     name: "first_name",

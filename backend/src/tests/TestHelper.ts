@@ -1,5 +1,5 @@
 import { DataSource, EntityTarget } from "typeorm";
-const config = require("../database/config/config.json")["test"]
+import { databaseConfig } from "../config/database";
 
 
 
@@ -8,7 +8,7 @@ export class TestHelper{
 
     async createDataSource(){
         const testDataSource = new DataSource({
-            ...config,
+            ...databaseConfig,
             entities: [`src/database/entities/*.ts`],
             migrations: [`src/database/entities/*.ts`],
         })

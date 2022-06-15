@@ -1,3 +1,4 @@
+import { validateOrReject } from 'class-validator';
 import { IUserRepository } from '../../database/repositories/Users/IUserRepository';
 import { User } from '../../database/entities/user.entity';
 interface IRequest{
@@ -26,6 +27,16 @@ export class UpdateUserService{
         if(password){
             user.encryptPassword()
         }
+
+        if(username){
+            const userExists = await this.userRepository.findOneByUsername(username)
+            if(userExists){
+                throw new Error("Já existe um usuário com esse nome de usuário!")
+            }
+        }
+
+
+        await validateOrReject(user)
 
         const userUpdated = await this.userRepository.update(user)
 

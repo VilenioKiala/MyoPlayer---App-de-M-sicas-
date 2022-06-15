@@ -18,13 +18,13 @@ export class UserRepository implements IUserRepository {
     }
 
     async findOneById(id: string): Promise<User>{
-        const users = await this.dataSource.manager.findOne(User,{
+        const user = await this.dataSource.manager.findOne(User,{
             where:{
                 id
             }
         })
 
-        return users;
+        return user;
     }
 
     async findAll(): Promise<User[]>{

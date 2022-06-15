@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { IsNotEmpty,IsString,IsAlphanumeric, Length } from 'class-validator'
 import bcrypt from 'bcrypt'
 
 interface IUser{
@@ -18,27 +19,49 @@ export class User implements IUser{
     id: string;
 
  
+    @IsNotEmpty({
+        message:"O primeiro nome do usuário é obrigatório!"
+    })
     @Column("varchar",{
         name: "first_name"
     })
     firstName: string;
-
- 
+    
+    
+    @IsNotEmpty({
+        message:"O apelido do usuário é obrigatório!"
+    })
     @Column("varchar",{
         name: "last_name"
     })
     lastName: string;
-
- 
+    
+    
+    @IsNotEmpty({
+        message:"O nome de usuário é obrigatório!"
+    })
+    @IsString({
+        message:"O nome de usuário deve ser um texto!"
+    })
+    @IsAlphanumeric("pt-BR",{
+        message:"O nome de usuário não pode conter espaço ou qualquer tipo de símbolo ou caractere estranho, apenas letras e números!"
+    })
     @Column("varchar",{
         name:"username",
         unique: true
     })
     username: string;
+    
+    
+    @IsNotEmpty({
+        message:"A palavra-passe do usuário é obrigatória!"
+    })
 
- 
     @Column("varchar",{
         name: "password"
+    })
+    @Length(6,undefined,{
+        message:"A palavra-passe deve ter no mínimo 6 caracteres!",
     })
     password: string;
 

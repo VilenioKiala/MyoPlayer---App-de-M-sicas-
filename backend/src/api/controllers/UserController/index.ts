@@ -1,8 +1,8 @@
 import { UpdateUser } from './UpdateUser';
 import { CreateUser } from './CreateUser';
 import { ListUser } from './ListUser';
-import { ShowOneUser } from './ShowOneUser';
 import { DeleteUser } from './DeleteUser';
+import { ShowOneUser } from './ShowOneUser';
 
 const createUser = new CreateUser()
 const listUser = new ListUser()
