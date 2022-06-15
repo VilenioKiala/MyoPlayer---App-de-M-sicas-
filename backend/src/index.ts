@@ -1,4 +1,3 @@
-import { adminRouter } from "./admin";
 import express from 'express'
 import { engine } from "express-handlebars";
 import cookieParser from "cookie-parser";
@@ -12,7 +11,6 @@ app.use(express.static(path.join(__dirname,"uploads")))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser())
-app.use("/admin",adminRouter)
 app.use("/api",apiRouter)
 app.engine("handlebars",engine())
 app.set("view engine", "handlebars")
